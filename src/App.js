@@ -1,59 +1,27 @@
 import { useState } from "react";
-
-import { toast, ToastContainer } from 'react-toastify';
+import { Home, Login, Public } from './containers/public/';
+import {  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Routes, Route } from "react-router-dom";
+import path from "./ultis/path";
 
 function App() {
-  
-  const [work  , setWork ] = useState ('')
-  const  [todos, setTodos] = useState ([])
-  const handleAdd = () =>{
-    if (todos?.some(item => item.id === work?.replace(/\s/g,''))){
-      toast.warn('Cv trùng lặp')
-    }else{
-      setTodos(prev  => [... prev,{ id: work?.replace(/\s/g,''), job: work}])
-      setWork('')
-      }
-    }
- 
 
-  const handleDelJob = (id) =>{
-    setTodos (prev => prev.filter(item => item.id != id ))
-  }
+  
   return (
    <>
-    <div className="flex flex-col gap-8 h-screen justify-center border border-red-500 items-center">
-        <div className="flex gap-8">
-          <input 
-          type="text" 
-          className="outline-none border border-blue-600 px-4  py-2 w-[400px] "
-          value={work}
-          onChange={e => setWork (e.target.value)}
-          />
+    <div className="">
+      <Routes>
+          <Route path={path.PUBLIC} element ={< Public/>}>
+            <Route path={path.HOME} element={<Home/>} />
+            <Route path={path.LOGIN} element={<Login/>} />
 
-          <button
-            type="button"
-            className="outline-none px-4 py-2 bg-blue-400 rounded-md text-white"
-            onClick={handleAdd }
-          >
-            Add
-          </button>
-        </div>
+            <Route path={path.STAR} element={<Home/>} />
 
-        <div>
-          <h3 className="font-bold text-xl ">Content</h3>
-          <ul>
-            {todos?.map((item) => {
-              return(
-                <li key= {item.id} className="flex gap-8 items-center">
-                  <span className="my-2">{item.job}</span>
-                  <span onClick={() => handleDelJob(item.id)} className="my-2 cursor-pointer p-2 ">x</span>
-                </li>
-              )
-            })}
-          </ul>  
-        </div>
+          </Route>
+
+      </Routes>
+
     </div>
     <ToastContainer
       position="top-right"
