@@ -8,7 +8,7 @@ const activeStyle= 'py-2 px-[25px] font-bold text-[#0F7070] text-[13px] flex gap
 
 const SidebarLeft = () => {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col bg-[#DDE4E4]'>
       <div className='w-full h-[70px] py-[15] px-[25px] flex justify-start items-center'>
         <img  src={logo} alt='logo' className='w-[120px] h-10'/>
       </div>
@@ -17,7 +17,7 @@ const SidebarLeft = () => {
           <NavLink 
             to={item.path}
             key={item.path}
-            end={item.end}
+            end={item.end }
             className={({isActive}) => isActive ? activeStyle : notActiveStyle}
           >
             {item.icons}
