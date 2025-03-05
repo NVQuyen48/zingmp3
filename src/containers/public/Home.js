@@ -5,7 +5,7 @@ import * as apis from '../../apis'
 
 const Home = () => {
 
-  useEffect(() =>{
+  useEffect(() => {
     const fetchDataHome = async() => {
       const response = await apis.getHome()
       console.log(response)
