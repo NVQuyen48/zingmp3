@@ -1,7 +1,7 @@
 import React from 'react'
 import icons from '../ultis/icons'
 import {Search} from './'
-const {FaArrowLeft,FaArrowRight,GoArrowLeft,GoArrowRight} = icons
+const {GoArrowLeft,GoArrowRight} = icons
 
 const Header = () => {
   return (

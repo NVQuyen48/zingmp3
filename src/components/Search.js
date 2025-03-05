@@ -2,6 +2,7 @@ import React from 'react'
 import icons from '../ultis/icons'
 
 const {CiSearch} = icons
+
 const Search = () => {
   return (
     <div className='w-full flex items-center'>
